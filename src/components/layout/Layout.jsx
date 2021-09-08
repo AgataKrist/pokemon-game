@@ -5,7 +5,11 @@ const Layout = ({ title, descr, urlBg = null, colorBg = null }) => {
   return (
     <section
       className={s.root}
-      style={{ background: urlBg ? `url(${urlBg})` : colorBg }}
+      style={
+        urlBg
+          ? { backgroundImage: `url(${urlBg})` }
+          : { backgroundColor: colorBg }
+      }
     >
       <div className={s.wrapper}>
         <article>
