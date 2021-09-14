@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./PokemonCard.module.css";
 import backSideCard from "../../assets/card-back-side.jpg";
 
 const PokemonCard = ({ name, id, type, img, values }) => {
+  const [isRotate, setRotate] = useState(false);
+  const handlerClick = () => {
+    setRotate(!isRotate);
+  };
   return (
     <div className={s.root}>
-      <div className={s.pokemonCard}>
+      <div
+        onClick={handlerClick}
+        className={`${s.pokemonCard} ${isRotate ? s.rotate : ""}`}
+      >
         <div className={s.cardFront}>
           <div className={`${s.wrap} ${s.front}`}>
             <div className={`${s.pokemon} ${s[type]}`}>
