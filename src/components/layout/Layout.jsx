@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./layout.module.css";
 
-const Layout = ({ title, descr, urlBg = null, colorBg = null }) => {
+const Layout = ({ title, urlBg = null, colorBg = null, children }) => {
   return (
     <section
       className={s.root}
@@ -18,7 +18,7 @@ const Layout = ({ title, descr, urlBg = null, colorBg = null }) => {
             <span className={s.separator}></span>
           </div>
           <div className={s.full + s.desc}>
-            <p>{descr}</p>
+            <p>{children}</p>
           </div>
         </article>
       </div>
