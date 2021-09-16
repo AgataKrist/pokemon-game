@@ -3,15 +3,11 @@ import cn from "classnames";
 import s from "./PokemonCard.module.css";
 import backSideCard from "../../assets/card-back-side.jpg";
 
-const PokemonCard = ({ name, id, type, img, values }) => {
-  const [isRotate, setRotate] = useState(false);
-  const handlerClick = () => {
-    setRotate(!isRotate);
-  };
+const PokemonCard = ({ name, id, type, img, values, onClick, isRotate }) => {
   return (
     <div className={s.root}>
       <div
-        onClick={handlerClick}
+        onClick={() => onClick(id)}
         className={cn(s.pokemonCard, { [s.rotate]: isRotate })}
       >
         <div className={s.cardFront}>

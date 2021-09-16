@@ -51,9 +51,3 @@ button:disabled:hover {
   border: 1px solid transparent;
   color: #fafafa;
 }
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
