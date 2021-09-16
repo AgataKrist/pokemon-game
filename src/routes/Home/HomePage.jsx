@@ -1,11 +1,9 @@
-import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import Layout from "../../components/layout/Layout";
 import POKEMONS from "../../mock/data";
 import PokemonCard from "../../components/pokemonCard/PokemonCard";
 import background from "../../assets/bg1.jpg";
 import s from "./style.module.css";
-import MenuHeader from "../../components/menuHeader/MenuHeader";
 
 function HomePage({ onChangePage }) {
   const handlerClickButton = (page) => {
@@ -14,7 +12,6 @@ function HomePage({ onChangePage }) {
 
   return (
     <div className="App">
-      <MenuHeader />
       <Header
         title={"This is title"}
         description={"This is Description!"}
@@ -32,7 +29,7 @@ function HomePage({ onChangePage }) {
         </p>
       </Layout>
 
-      <Layout id={"PokemonCards"} title={"Pokemon Cards"} colorBg={"red"}>
+      {/* <Layout id={"PokemonCards"} title={"Pokemon Cards"} colorBg={"red"}>
         <div className={s.flex}>
           {POKEMONS.map((pokemon) => (
             <PokemonCard
@@ -45,7 +42,7 @@ function HomePage({ onChangePage }) {
             />
           ))}
         </div>
-      </Layout>
+      </Layout> */}
 
       <Layout id={"about"} title={"Full rules"} urlBg={background}>
         <p>
@@ -60,7 +57,6 @@ function HomePage({ onChangePage }) {
           the player's color instead.{" "}
         </p>
       </Layout>
-      <Footer />
     </div>
   );
 }
