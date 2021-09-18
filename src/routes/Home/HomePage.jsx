@@ -1,9 +1,6 @@
 import Header from "../../components/header/Header";
 import Layout from "../../components/layout/Layout";
-import POKEMONS from "../../mock/data";
-import PokemonCard from "../../components/pokemonCard/PokemonCard";
 import background from "../../assets/bg1.jpg";
-import s from "./style.module.css";
 
 function HomePage({ onChangePage }) {
   const handlerClickButton = (page) => {
@@ -28,22 +25,6 @@ function HomePage({ onChangePage }) {
           blue.
         </p>
       </Layout>
-
-      {/* <Layout id={"PokemonCards"} title={"Pokemon Cards"} colorBg={"red"}>
-        <div className={s.flex}>
-          {POKEMONS.map((pokemon) => (
-            <PokemonCard
-              key={pokemon.id}
-              name={pokemon.name}
-              id={pokemon.id}
-              type={pokemon.type}
-              img={pokemon.img}
-              values={pokemon.values}
-            />
-          ))}
-        </div>
-      </Layout> */}
-
       <Layout id={"about"} title={"Full rules"} urlBg={background}>
         <p>
           To win, a majority of the total ten cards played (including the one
@@ -54,7 +35,7 @@ function HomePage({ onChangePage }) {
           opponent's card is higher than the player's card, the player's card
           will be captured and turned into the opponent's color. If the player's
           rank is higher, the opponent's card will be captured and changed into
-          the player's color instead.{" "}
+          the player's color instead.
         </p>
       </Layout>
     </div>
