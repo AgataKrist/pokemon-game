@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import cn from "classnames";
 import s from "./PokemonCard.module.css";
 import backSideCard from "../../assets/card-back-side.jpg";
 
-const PokemonCard = ({ name, id, type, img, values, onClick, isRotate }) => {
+const PokemonCard = ({
+  name,
+  id,
+  type,
+  img,
+  values,
+  onClick,
+  isRotate,
+  objID,
+}) => {
   return (
     <div className={s.root}>
       <div
-        onClick={() => onClick(id)}
+        onClick={() => onClick(id, isRotate, objID)}
         className={cn(s.pokemonCard, { [s.rotate]: isRotate })}
       >
         <div className={s.cardFront}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useRouteMatch, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./routes/Home/HomePage";
 import GamePage from "./routes/Game/GamePage";

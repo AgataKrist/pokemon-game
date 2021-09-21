@@ -19,7 +19,7 @@ const Layout = ({ title, urlBg = null, colorBg = null, children }) => {
             <span className={s.separator}></span>
           </div>
           <div className={cn(s.full, s.desc)}>
-            <p>{children}</p>
+            <div className={s.p}>{children}</div>
           </div>
         </article>
       </div>
