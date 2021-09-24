@@ -32,39 +32,6 @@ const StartPage = () => {
 		}));
 	};
 
-	// const addNewPok = () => {
-	// 	const randomID = () => {
-	// 		return Math.ceil(Math.random() * 2000);
-	// 	};
-	// 	const DATA = {
-	// 		abilities: ["keen-eye", "tangled-feet", "big-pecks"],
-	// 		base_experience: 122,
-	// 		height: 11,
-	// 		weight: 300,
-	// 		active: false,
-	// 		id: randomID(),
-	// 		img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
-	// 		name: "pidgeotto",
-	// 		stats: {
-	// 			hp: 63,
-	// 			attack: 60,
-	// 			defense: 55,
-	// 			"special-attack": 50,
-	// 			"special-defense": 50,
-	// 			speed: 71,
-	// 		},
-	// 		type: "normal",
-	// 		values: {
-	// 			top: 7,
-	// 			right: 5,
-	// 			bottom: 1,
-	// 			left: 2,
-	// 		},
-	// 	};
-	// 	const data = DATA;
-	// 	firebase.addPokemon(data);
-	// };
-
 	const handlerClick = () => {
 		history.push("/");
 	};

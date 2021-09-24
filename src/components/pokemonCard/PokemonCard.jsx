@@ -14,10 +14,11 @@ const PokemonCard = ({
 	minimize,
 	className,
 	isSelected,
+	possession,
 }) => {
 	return (
 		<div
-			onClick={() => onClick(id, isRotate, objID)}
+			onDoubleClick={() => onClick(id, isRotate, objID)}
 			className={cn(s.pokemonCard, className, {
 				[s.rotate]: isRotate,
 				[s.selected]: isSelected,
@@ -25,7 +26,10 @@ const PokemonCard = ({
 		>
 			<div className={s.cardFront}>
 				<div className={cn(s.wrap, s.front)}>
-					<div className={cn(s.pokemon, s[type])}>
+					<div
+						className={cn(s.pokemon, s[type], s[possession])}
+						// style={{ backgroundColor: possession }}
+					>
 						<div className={s.values}>
 							<div className={cn(s.count, s.top)}>
 								{values.top}
