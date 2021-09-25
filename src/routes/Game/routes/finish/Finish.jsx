@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { useContext } from "react/cjs/react.development";
 import s from "./style.module.css";
+import cn from "classnames";
 import { PokemonContext } from "../../../../context/pokemonContext";
 import PokemonCard from "../../../../components/pokemonCard/PokemonCard";
 import { useHistory } from "react-router";
 import { FireBaseContext } from "../../../../context/firebaseContext";
 
 const FinishPage = () => {
+	const pokemonsContext = useContext(PokemonContext);
 	const { pokemons, pokemons2 } = useContext(PokemonContext);
 	const firebase = useContext(FireBaseContext);
-	const [newPokemon, seNewPokemon] = useState(null);
+	const [newPokemon, seNewPokemon] = useState({});
+	const [isChoise, setChoise] = useState(null);
 
 	const history = useHistory();
 	if (Object.keys(pokemons).length === 0 || !pokemons2.length) {
@@ -18,10 +21,12 @@ const FinishPage = () => {
 
 	const getNewPokemon = pokemon => {
 		seNewPokemon(pokemon);
+		setChoise(pokemon.id);
 	};
 
 	const finishGame = () => {
 		firebase.getNewPokemon(newPokemon);
+		pokemonsContext.clearPokemon();
 		history.push("/");
 	};
 	return (
@@ -33,8 +38,6 @@ const FinishPage = () => {
 							<PokemonCard
 								className={s.card}
 								objID={key}
-								//prettier-ignore
-
 								isRotate={true}
 								key={key}
 								name={name}
@@ -55,12 +58,13 @@ const FinishPage = () => {
 					pokemons2.map(pokemon => (
 						<div
 							onClick={() => getNewPokemon(pokemon)}
-							className={s.cardWrap}
+							className={cn(s.cardWrap, {
+								[s.choice]: isChoise === pokemon.id,
+							})}
 						>
 							<PokemonCard
 								className={s.card}
-								//prettier-ignore
-
+								isChoise={isChoise}
 								isRotate={true}
 								key={pokemon.id}
 								name={pokemon.name}

@@ -23,7 +23,6 @@ const PlayerBoard = ({ cards, onClickCard, player }) => {
 					}}
 				>
 					<PokemonCard
-						//prettier-ignore
 						className={s.card}
 						isRotate={true}
 						key={card.id}

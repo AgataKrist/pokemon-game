@@ -22,6 +22,7 @@ const countWin = (player1, player2, board) => {
 };
 
 const BoardPage = () => {
+	const pokemonsContext = useContext(PokemonContext);
 	const { pokemons } = useContext(PokemonContext);
 	const [board, setBoard] = useState([]);
 	const [player1, setPlayer1] = useState(() => {
@@ -35,10 +36,6 @@ const BoardPage = () => {
 	const [choiceCard, setChoiceCard] = useState(null);
 	const [steps, setSteps] = useState(0);
 	const history = useHistory();
-
-	if (!Object.keys(pokemons).length) {
-		history.replace("/game");
-	}
 
 	useEffect(async () => {
 		const boardResponce = await fetch(
@@ -99,22 +96,36 @@ const BoardPage = () => {
 			const [count1, count2] = countWin(player1, player2, board);
 			if (count1 > count2) {
 				alert("WIN");
+				history.replace("/game/finish");
+				return;
 			}
 			if (count1 < count2) {
+				pokemonsContext.clearPokemon();
 				alert("Lose");
+
+				history.replace("/game");
+				return;
 			}
 			if (count1 === count2) {
 				alert("DRAWN");
+				pokemonsContext.clearPokemon();
+
+				history.replace("/game");
+				return;
 			}
-			history.replace("/game/finish");
 		}
 	}, [steps]);
+	if (!Object.keys(pokemons).length) {
+		history.replace("/game");
+	}
 	return (
 		<div className={s.root}>
 			<div className={s.playerOne}>
 				<PlayerBoard
 					player={1}
-					onClickCard={card => setChoiceCard(card)}
+					onClickCard={card => {
+						setChoiceCard(card);
+					}}
 					cards={player1}
 				/>
 			</div>

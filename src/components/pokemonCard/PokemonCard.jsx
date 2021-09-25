@@ -15,13 +15,15 @@ const PokemonCard = ({
 	className,
 	isSelected,
 	possession,
+	isChoise,
 }) => {
 	return (
 		<div
-			onDoubleClick={() => onClick(id, isRotate, objID)}
+			onClick={() => onClick && onClick(id, isRotate, objID)}
 			className={cn(s.pokemonCard, className, {
 				[s.rotate]: isRotate,
 				[s.selected]: isSelected,
+				[s.newPokChoise]: isChoise,
 			})}
 		>
 			<div className={s.cardFront}>

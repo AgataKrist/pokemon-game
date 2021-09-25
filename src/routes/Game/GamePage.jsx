@@ -37,12 +37,18 @@ const GamePage = () => {
 			};
 		});
 	};
+
+	const onClearPokemon = () => {
+		setSelectedPokemons({});
+		setSelectedPokemons2({});
+	};
 	return (
 		<PokemonContext.Provider
 			value={{
 				pokemons: selectedPokemons,
 				onSelectedPokemons: handleSelectedPokemon,
 				pokemons2: selectedPokemons2,
+				clearPokemon: onClearPokemon,
 			}}
 		>
 			<Switch>
