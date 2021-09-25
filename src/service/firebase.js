@@ -39,6 +39,10 @@ class Firebase {
 		const newKey = this.database.ref().child("pokemons").push().key;
 		this.database.ref("pokemons/" + newKey).set(data);
 	};
+	getNewPokemon = pokemon => {
+		const newKey = this.database.ref().child("pokemons").push().key;
+		this.database.ref("pokemons/" + newKey).set(pokemon);
+	};
 }
 
 export default Firebase;

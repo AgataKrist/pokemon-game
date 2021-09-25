@@ -1,11 +1,5 @@
 import React from "react";
-import {
-	useLocation,
-	useRouteMatch,
-	Route,
-	Switch,
-	Redirect,
-} from "react-router-dom";
+import { useLocation, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./routes/Home/HomePage";
 import GamePage from "./routes/Game/GamePage";
 import MenuHeader from "./components/menuHeader/MenuHeader";
